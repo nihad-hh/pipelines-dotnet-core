@@ -6,8 +6,15 @@
 trigger:
 - master
 
-pool:
-  vmImage: ubuntu-latest
+strategy:
+  matrix:
+    linux:
+      imageName: "ubuntu-latest"
+    mac:
+      imageName: "macOS-latest"
+    windows:
+      imageName: "windows-latest"
+  maxParallel: 3
 
 variables:
   buildConfiguration: 'Release'
